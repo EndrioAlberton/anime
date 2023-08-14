@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<head> 
+    <%- include ('../head'); %>
+</head> 
+<body>
+    <header> 
+        <%- include ('../menu'); %>
+    </header> 
+    <% dadosAnime.forEach(function({id, titulo, sinopse, imagem}) { %> 
+ 
+    <div class="container">
+        <h2>Adicionar novo anime</h2>  
+        <form action="/editar/<%=id %>" method="POST" enctype="multipart/form-data"> 
+            <div class="form-group"> 
+                <label for="anime">Título: </label> 
+                <input type="text" class="form-control" name="titulo" value="<%= titulo %>">
+            </div> 
+              
+            <div class="form-group"> 
+                <label for="anime">Sinopse: </label> 
+                <input type="text" class="form-control" name="sinopse" value="<%= sinopse %>">
+            </div>  
+            <div class="form-group"> 
+                <label for="anime">Imagem: </label> 
+                <input type="file" class="form-control" name="imagem" value="<%= imagem %>">
+            </div>  
+            <% }) %>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div> 
+</body>
